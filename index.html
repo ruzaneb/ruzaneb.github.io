@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Zane Bajati — Supply Chain Management Student at Rutgers">
+<title>Zane Bajati | Supply Chain Management</title>
+
+<style>
+:root{
+  --bg:#f6f7fb;
+  --card:#ffffff;
+  --text:#111827;
+  --muted:#64748b;
+  --line:#e5e7eb;
+  --accent:#4f46e5;
+  --accent2:#7c3aed;
+  --dark:#0b1020;
+  --max:1120px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  color:var(--text);
+  background:var(--bg);
+  line-height:1.65;
+}
+a{color:inherit}
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:20;
+  background:rgba(246,247,251,.82);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(229,231,235,.8);
+}
+.nav-inner{
+  max-width:var(--max);margin:auto;padding:17px 24px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.brand{font-weight:850;letter-spacing:-.04em;font-size:1.25rem}
+.nav-links{display:flex;gap:24px;list-style:none}
+.nav-links a{text-decoration:none;color:#475569;font-size:.92rem;font-weight:600}
+.nav-links a:hover{color:var(--accent)}
+.hero{
+  min-height:100vh;display:flex;align-items:center;
+  padding:130px 24px 90px;overflow:hidden;
+  background:
+    radial-gradient(circle at 80% 20%,rgba(124,58,237,.16),transparent 30%),
+    radial-gradient(circle at 10% 80%,rgba(79,70,229,.12),transparent 30%),
+    var(--bg);
+}
+.hero-inner{
+  width:100%;max-width:var(--max);margin:auto;
+  display:grid;grid-template-columns:1.2fr .8fr;gap:70px;align-items:center;
+}
+.eyebrow{
+  color:var(--accent);font-weight:800;text-transform:uppercase;
+  letter-spacing:.12em;font-size:.78rem;margin-bottom:16px;
+}
+h1{
+  font-size:clamp(3.5rem,7vw,6.7rem);line-height:.95;
+  letter-spacing:-.075em;margin-bottom:25px;
+}
+.gradient{
+  background:linear-gradient(100deg,var(--accent),var(--accent2));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.hero-sub{
+  font-size:1.2rem;max-width:700px;color:#475569;margin-bottom:32px;
+}
+.buttons{display:flex;gap:12px;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:12px 18px;border-radius:11px;text-decoration:none;
+  font-weight:750;font-size:.94rem;border:1px solid var(--line);
+  transition:.2s ease;
+}
+.btn-primary{background:var(--text);color:#fff;border-color:var(--text)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 25px rgba(15,23,42,.18)}
+.btn-light{background:#fff;color:var(--text)}
+.btn-light:hover{transform:translateY(-2px);border-color:#cbd5e1}
+.hero-photo-wrap{display:flex;justify-content:center}
+.hero-photo{
+  width:min(390px,82vw);aspect-ratio:3/4;object-fit:cover;
+  border-radius:28px;box-shadow:0 30px 80px rgba(15,23,42,.2);
+  transform:rotate(2deg);
+  border:8px solid rgba(255,255,255,.75);
+}
+section{max-width:var(--max);margin:auto;padding:105px 24px}
+.section-label{
+  color:var(--accent);font-weight:800;text-transform:uppercase;
+  letter-spacing:.12em;font-size:.75rem;margin-bottom:9px;
+}
+.section-title{
+  font-size:clamp(2rem,4vw,3.2rem);letter-spacing:-.055em;
+  margin-bottom:14px;
+}
+.section-intro{color:var(--muted);max-width:750px;margin-bottom:42px}
+.about-grid{display:grid;grid-template-columns:1.4fr .6fr;gap:28px}
+.statement,.info-card,.experience,.project,.skill-card{
+  background:var(--card);border:1px solid var(--line);border-radius:20px;
+  box-shadow:0 8px 30px rgba(15,23,42,.045);
+}
+.statement{padding:32px}
+.statement p{font-size:1.22rem;line-height:1.7;color:#334155}
+.info-card{padding:28px}
+.info-card h3{margin-bottom:18px}
+.info-row{padding:11px 0;border-bottom:1px solid var(--line);font-size:.95rem}
+.info-row:last-child{border-bottom:0}
+.info-row span{display:block;color:var(--muted);font-size:.76rem;text-transform:uppercase;letter-spacing:.08em;font-weight:800}
+.timeline{display:grid;gap:18px}
+.experience{padding:27px}
+.exp-top{display:flex;justify-content:space-between;gap:20px;align-items:flex-start}
+.experience h3{font-size:1.15rem}
+.role{color:var(--accent);font-weight:750;margin-top:2px}
+.date{color:#94a3b8;font-size:.86rem;white-space:nowrap}
+.experience ul{margin:16px 0 0 20px;color:#475569}
+.experience li{margin:7px 0}
+.project-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.project{padding:28px;position:relative;overflow:hidden}
+.project:before{
+  content:"";position:absolute;inset:0 0 auto;height:4px;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+}
+.project-num{font-size:.75rem;color:var(--accent);font-weight:850;letter-spacing:.1em}
+.project h3{font-size:1.35rem;margin:10px 0}
+.project p{color:#64748b}
+.tag-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.tag{
+  background:#f1f5f9;color:#475569;padding:5px 9px;
+  border-radius:999px;font-size:.75rem;font-weight:700;
+}
+.skills{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:14px;
+}
+.skill-card{padding:22px;font-weight:750}
+.skill-card small{display:block;color:var(--muted);font-weight:500;margin-top:4px}
+.beyond{background:var(--dark);color:white;max-width:none}
+.beyond-inner{max-width:var(--max);margin:auto}
+.beyond .section-label{color:#a5b4fc}
+.beyond .section-intro{color:#aeb7c9}
+.interest-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.interest{
+  border:1px solid rgba(255,255,255,.1);border-radius:22px;
+  overflow:hidden;background:rgba(255,255,255,.045);
+}
+.interest-image{height:230px;width:100%;object-fit:contain;display:block;background:#0b1020}
+.interest-content{padding:23px}
+.interest h3{margin-bottom:7px}
+.interest p{color:#b9c1d0}
+.music-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:14px}
+.artist{
+  overflow:hidden;border-radius:16px;border:1px solid rgba(255,255,255,.1);
+  background:rgba(255,255,255,.04)
+}
+.artist img{width:100%;aspect-ratio:1;object-fit:cover;display:block}
+.artist div{padding:12px 14px;font-weight:750}
+.contact{
+  text-align:center;background:#fff;border-top:1px solid var(--line);
+}
+.contact-card{max-width:800px;margin:auto}
+.email{
+  display:inline-block;font-size:clamp(1.1rem,3vw,1.6rem);font-weight:800;
+  text-decoration:none;margin:18px 0 25px;color:var(--accent);
+}
+.footer{
+  text-align:center;padding:30px 24px;color:#94a3b8;
+  background:#fff;border-top:1px solid var(--line);font-size:.85rem;
+}
+@media(max-width:850px){
+  .hero-inner,.about-grid{grid-template-columns:1fr}
+  .hero{padding-top:120px}
+  .hero-photo-wrap{order:-1}
+  .hero-photo{width:min(300px,75vw)}
+  .skills{grid-template-columns:repeat(2,1fr)}
+  .project-grid,.interest-grid{grid-template-columns:1fr}
+  .music-grid{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:600px){
+  .nav-links{display:none}
+  section{padding:75px 18px}
+  .hero{padding-left:18px;padding-right:18px}
+  .hero-sub{font-size:1.05rem}
+  .exp-top{display:block}
+  .date{display:block;margin-top:5px}
+  .skills{grid-template-columns:1fr 1fr}
+  .music-grid{grid-template-columns:1fr}
+  .artist{display:grid;grid-template-columns:90px 1fr;align-items:center}
+  .artist img{height:90px}
+}
+
+.cert{margin-top:22px;border-top:1px solid var(--line);padding-top:18px}
+.cert-label{font-size:.75rem;color:var(--accent);font-weight:850;letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px}
+.cert-thumb{display:block;width:100%;padding:0;border:1px solid var(--line);border-radius:12px;overflow:hidden;cursor:zoom-in;background:#fff;box-shadow:0 6px 20px rgba(15,23,42,.08)}
+.cert-thumb img{display:block;width:100%;height:auto}
+.cert-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+.cert-actions a,.cert-actions button{font:inherit;font-size:.85rem;font-weight:700;padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:#f1f5f9;color:#334155;cursor:pointer;text-decoration:none}
+.cert-actions a:hover,.cert-actions button:hover{color:var(--accent);border-color:var(--accent)}
+.cert-modal{position:fixed;inset:0;background:rgba(15,23,42,.85);display:none;align-items:center;justify-content:center;z-index:1000;padding:24px}
+.cert-modal.open{display:flex}
+.cert-modal img{max-width:100%;max-height:100%;border-radius:10px;background:#fff;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.cert-close{position:absolute;top:16px;right:20px;font-size:2rem;line-height:1;color:#fff;background:none;border:0;cursor:pointer}
+</style>
+</head>
+
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="brand">Zane Bajati</div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#beyond">Beyond Business</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="eyebrow">Rutgers Business School • Class of 2029</div>
+      <h1>Zane <span class="gradient">Bajati.</span></h1>
+      <p class="hero-sub">Supply Chain Management Student at Rutgers</p>
+      <div class="buttons">
+        <a class="btn btn-primary" href="#projects">Explore My Work</a>
+        <a class="btn btn-light" href="https://www.linkedin.com/in/zane-bajati" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a class="btn btn-light" href="Bajati_Zane_Resume.pdf" target="_blank">View Resume</a>
+      </div>
+    </div>
+    <div class="hero-photo-wrap">
+      <img class="hero-photo" alt="Zane Bajati headshot"
+        src="data:image/png;base64,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
