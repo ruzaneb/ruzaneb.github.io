@@ -1,0 +1,44 @@
+<script>
+(function(){
+  try{
+    var b64 = document.getElementById('certPdfData').textContent.trim();
+
+    // Keep the PDF completely embedded inside the HTML.
+    // No blob URL, no external network request.
+    var pdfUrl = 'data:application/pdf;base64,' + b64;
+
+    document.getElementById('certPdfOpen').href = pdfUrl;
+    document.getElementById('certPdfDl').href = pdfUrl;
+  }catch(e){
+    console.error('Certificate PDF setup failed:', e);
+  }
+
+  // Certificate image modal
+  var m = document.getElementById('certModal');
+  var mi = document.getElementById('certModalImg');
+  var src = document.querySelector('#certOpen img').src;
+
+  function openCertificate(){
+    mi.src = src;
+    m.classList.add('open');
+  }
+
+  function closeCertificate(){
+    m.classList.remove('open');
+  }
+
+  document.getElementById('certOpen').onclick = openCertificate;
+  document.getElementById('certView').onclick = openCertificate;
+  document.getElementById('certClose').onclick = closeCertificate;
+
+  m.onclick = function(e){
+    if(e.target === m) closeCertificate();
+  };
+
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape') closeCertificate();
+  });
+})();
+</script>
+</body>
+</html>
